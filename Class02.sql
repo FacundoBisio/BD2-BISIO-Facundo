@@ -32,7 +32,22 @@ ADD COLUMN last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIM
 ALTER TABLE actor
 ADD COLUMN last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
--- Agregar restricciones de clave externa a la tabla film_actor
+-- Agregar foreign keys film_actor
 ALTER TABLE film_actor
 ADD CONSTRAINT FK_actor_id FOREIGN KEY (actor_id) REFERENCES actor(actor_id),
 ADD CONSTRAINT FK_film_id FOREIGN KEY (film_id) REFERENCES film(film_id);
+
+-- Inserts para la tabla film
+INSERT INTO film (title, description, release_year, last_update) VALUES ('Film 1', 'Description for Film 1', 2020, NOW());
+INSERT INTO film (title, description, release_year, last_update) VALUES ('Film 2', 'Description for Film 2', 2018, NOW());
+INSERT INTO film (title, description, release_year, last_update) VALUES ('Film 3', 'Description for Film 3', 2015, NOW());
+
+-- Inserts para la tabla actor
+INSERT INTO actor (first_name, last_name, last_update) VALUES ('John', 'Doe', NOW());
+INSERT INTO actor (first_name, last_name, last_update) VALUES ('Jane', 'Doe', NOW());
+INSERT INTO actor (first_name, last_name, last_update) VALUES ('Alice', 'Smith', NOW());
+
+-- Inserts para la tabla film_actor
+INSERT INTO film_actor (film_actor_id, actor_id, film_id) VALUES (1, 1, 1);
+INSERT INTO film_actor (film_actor_id, actor_id, film_id) VALUES (2, 2, 1);
+INSERT INTO film_actor (film_actor_id, actor_id, film_id) VALUES (3, 3, 2);
