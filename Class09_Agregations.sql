@@ -10,7 +10,7 @@ select c.country, count(*) as amount_cities from city ci
 inner join country c on c.country_id = ci.country_id
 group by c.country_id
 having 10 < amount_cities
-order by amount_cities desc;
+order by amount_cities desc; 
 
 # Ejercicio 3
 select first_name,last_name,a.*, 

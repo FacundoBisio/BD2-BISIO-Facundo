@@ -10,7 +10,7 @@ SELECT f.title, i.inventory_id FROM film f
 INNER JOIN inventory i USING(film_id)
 LEFT OUTER JOIN rental r USING(inventory_id)
 WHERE r.rental_id IS NULL;
-
+ 
 # Ejercicio 3
 SELECT concat(c.first_name, " ",c.last_name) AS complete_name, s.store_id, f.title 
 FROM rental r
